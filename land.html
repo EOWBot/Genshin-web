@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>十堰高中联盟官方网站-登陆系统</title>
+    <link rel="stylesheet" href="./css/land.css">
+</head>
+<body>
+    <div class="logo">
+        <img src="./img/logo.png">
+    </div>
+    <div class="container">
+        <h1>用户登陆</h1>
+        <div class="lands">
+            <div class="land1 active1" data-id="land3">验证码登录</div>
+            <div class="land2" data-id="land4">密码登录</div>
+        </div>
+        <form action="">
+            <div class="land3 active2">
+                <div class="phone">
+                    <input type="text" placeholder="手机号/邮箱" required name="phone">
+                </div>
+                <div class="code">
+                    <input type="text" placeholder="手机号验证码" required name="code">
+                    <div class="getCode">获取验证码</div>
+                </div>
+                <div class="land">
+                    <button type="submit">登陆</button>
+                </div>
+            </div>
+        </form>
+        <form action="">
+            <div class="land4">
+                <div class="phone">
+                    <input type="text" placeholder="手机号/邮箱" required name="phone">
+                </div>
+                <div class="password">
+                    <input type="password" placeholder="密码" required name="password">
+                </div>
+                <div class="land">
+                    <button type="submit">登陆</button>
+                </div>
+            </div>
+        </form>       
+    </div>
+    <script>
+        // 获取数据
+        const lands = document.querySelector('.lands')
+        const getCode = document.querySelector('.land3 .code .getCode')
+        const button = document.querySelectorAll('button')
+        const form = document.querySelectorAll('form')
+        const input1 = document.querySelector('.land3 .phone input')
+        const input2 = document.querySelector('.land3 .code input')
+        const input3 = document.querySelector('.land4 .phone input')
+        const input4 = document.querySelector('.land4 .password input')
+        // 随机数
+        var random = +Math.floor(Math.random() * 899999 + 100000)
+        // 临时存放数据（手机号）
+        localStorage.setItem('phone', '123456')
+        const phone = +localStorage.getItem('phone')
+        // 临时存放数据（密码）
+        localStorage.setItem('password', 123456)
+        const password = +localStorage.getItem('password')
+        // 验证码登录和账号密码登录切换
+        lands.addEventListener('click', function(e){
+            if(e.target.tagName === 'DIV'){
+                this.querySelector('.active1').classList.remove('active1')
+                e.target.classList.add('active1')
+                document.querySelector('.container .active2').classList.remove('active2')
+                document.querySelector(`.container .${e.target.dataset.id}`).classList.add('active2')
+            }
+        })
+        // 验证码获取       
+        getCode.addEventListener('click',function(){           
+            if(getCode.innerHTML === '获取验证码'){
+                alert(random)
+                let i = 60
+                getCode.innerHTML = `${i}秒后获取`
+                let n = setInterval(function(){
+                    i--
+                    if(i <= 0){
+                        getCode.innerHTML = '获取验证码'
+                        clearInterval(n)
+                    }else{
+                        getCode.innerHTML = `${i}秒后获取`
+                    }
+                }, 1000)
+            }
+        })
+        // 提交按钮鼠标经过切换样式
+        for(let i = 0;i < button.length;i++){
+            button[i].addEventListener('mouseenter', function(){
+                this.classList.add('active3')
+            })
+            button[i].addEventListener('mouseleave', function(){
+                this.classList.remove('active3')
+            })
+        }
+        // 表单提交
+        form[0].addEventListener('submit', function(e){
+            e.preventDefault()
+            if(+input1.value !== phone){
+                return alert('手机号码输入错误')
+            }
+            if(+input2.value !== random){
+                return alert('验证码输入错误')
+            }
+            localStorage.setItem('head', 'true')
+            location.href = './index.html'
+        })
+        form[1].addEventListener('submit', function(e){
+            e.preventDefault()
+            if(+input3.value !== phone){
+                return alert('手机号码输入错误')
+            }
+            if(+input4.value !== password){
+                return alert('密码输入错误')
+            }
+            localStorage.setItem('head', 'true')
+            location.href = './index.html'
+        })
+    </script>
+</body>
+
+</html>

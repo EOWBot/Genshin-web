@@ -1,0 +1,277 @@
+body{
+  width: 100%;
+  height: 100%;
+}
+
+.navs .nav .blue{
+  transform: translateX(250px);
+}
+
+.role{
+  position: relative;
+  min-width: 1280px;
+  width: 100%;
+  height: 100%;
+  min-height: 800px;
+  overflow: hidden;
+}
+
+.role .roleBg img:nth-child(1),
+.role .roleBg img:nth-child(2){
+  width: 100%;
+  height: 100%;
+  display: none;
+  animation: scale 8s linear;
+}
+
+.role .roleBg img:nth-child(3){
+  position: absolute;
+  top: -120px;
+  left: -320px;
+  transform: scale(0.8);
+}
+
+.role .roleBg img.active{
+  display: block;
+}
+
+@keyframes scale {
+  from{
+    transform: scale(1);
+  }
+  to{
+    transform: scale(1.1);
+  }
+}
+
+.role .nav{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 370px;
+  height: 100%;
+  z-index: 99;
+}
+
+.role .nav .bg{
+  position: absolute;
+  top: 0;
+  left: 37px;
+  width: 2px;
+  height: 100%;
+  background-color: rgba(255,255,255,0.14);
+}
+
+.role .nav ul{
+  margin-top: 187px;
+  list-style: none;
+}
+
+.role .nav ul li{
+  padding-left: 60px;
+  width: 300px;
+  height: 54px;
+  font-size: 18px;
+  line-height: 54px;
+  color: white;
+  background-image: url(../img/roleNavBg2.png);
+  background-repeat: no-repeat;
+  background-position-x: 18px;
+  background-position-y: center;
+  cursor: pointer;
+}
+
+.role .nav ul li.active{
+  padding-left: 70px;
+  background-image: url(../img/roleNavBg1.png);
+  background-repeat: no-repeat;
+  background-position-x: left;
+  background-position-y: center;
+}
+
+.role .role1{
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 85.6%;
+  min-width: 1300px;
+  height: 100%;
+}
+
+.role .role1 ul{
+  list-style: none;
+}
+
+.role .role1 ul li{
+  display: none;
+}
+
+.role .role1 ul li.active{
+  display: block;
+}
+
+.role .role1 img{
+  width: 100%;
+  height: 100%;
+}
+
+.role .role1 img:nth-child(1){
+  margin-left: 50px;
+}
+
+.role .role1 img:nth-child(2){
+  position: absolute;
+  top: 68px;
+  left: 50px;
+  width: 360px;
+  height: 378px;
+  opacity: 0.1;
+}
+
+.role .role1 .content{
+  position: absolute;
+  left: 125px;
+  top: 144px;
+  width: 550px;
+}
+
+.role .role1 .content .top{
+  width: 180px;
+  height: 4px;
+  background-color: #e3bc8c;
+}
+
+.role .role1 .content img{
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 400px;
+  height: auto;
+  margin-top: 20px;
+  opacity: 1;
+}
+
+.role .role1 .content .dub{
+  padding-left: 60px;
+  position: absolute;
+  top: 122px;
+  width: 270px;
+  height: 54px;
+  background-image: url(../img/role1DubBg.jpg);
+  background-repeat: no-repeat;
+  background-color: #CCA576;
+}
+
+.role .role1 .content .dub span{
+  font-size: 24px;
+  line-height: 54px;
+  color: #24333c;
+}
+
+.role .role1 .content .dub img{
+  margin-left: 272px;
+  margin-top: -9px;
+  width: 64px;
+  height: 64px;
+  display: none;
+}
+
+.role .role1 .content .dub img.active{
+  display: block;
+}
+
+.role .role1 .content .introduction{
+  position: absolute;
+  top: 200px;
+  width: 100%;
+  background-color: rgba(1,1,1,0.5);
+  background-image: url(../img/role1.introductionBg.png);
+  background-repeat: no-repeat;
+  background-position-x: 10px;
+  background-position-y: 10px;
+}
+
+.role .role1 .content .introduction span{
+  display: block;
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-bottom: 10px;
+  width: 455px;
+  color: white;
+  font-size: 16px;
+  line-height: 26px;
+}
+
+.role .roles{
+  display: flex;
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 190px;
+  z-index: 999;
+  background-color: rgba(204,204,204,0.2);
+}
+
+.role .roles .left img{
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-left: -520px;
+  margin-top: -32px;
+}
+
+.role .roles .middle{
+  margin: 22px auto 0;
+  width: 830px;
+  height: 150px;
+  overflow: hidden;
+}
+
+.role .roles .middle ul{
+  display: flex;
+  margin-top: 10px;
+  list-style: none;
+  transition: all .5s;
+}
+
+.role .roles .middle ul li{
+  margin-right: 34px;
+  background-color: transparent;
+  background-image: url(../img/role1TitleBg.png) !important;
+}
+
+.role .roles .middle ul li:last-child(){
+  margin-right: 0;
+}
+
+.role .roles .middle ul li.active{
+  background-position-y: -132px;
+}
+
+.role .roles .middle ul li.active span{
+  color: black;
+}
+
+.role .roles .middle ul li img{
+  margin-top: 2px;
+  width: 106px;
+  height: 104px;
+}
+
+.role .roles .middle ul li span{
+  display: block;
+  width: 110px;
+  height: 22px;
+  text-align: center;
+  font-size: 16px;
+  color: white;
+  line-height: 22px;
+}
+
+.role .roles .right img{
+  position: absolute;
+  top: 50%;
+  right: 50%;
+  margin-right: -520px;
+  margin-top: -32px;
+}
